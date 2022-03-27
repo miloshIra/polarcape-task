@@ -11,6 +11,7 @@ db = SQLAlchemy(app)
 
 
 class User(db.Model):
+    """ This is the customer model class. """
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(16))
@@ -26,6 +27,7 @@ class User(db.Model):
 
 
 class UserAddress(db.Model):
+    """ This is the Customer Address model in relation with the Customer model."""
     __tablename__ = "user_address"
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
@@ -41,6 +43,7 @@ class UserAddress(db.Model):
 
 
 class Product(db.Model):
+    """ This is the product model. """
     __tablename__ = "products"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(16))
@@ -72,7 +75,7 @@ def get_user(id):
                      'email': user.email,
                      'credit_card_number': user.credit_card_number,
                      'date_created': user.timestamp,
-                     "delivery_adress": {
+                     "delivery_address": {
                          "street_and_number": user.delivery_address.street_and_number,
                          "zip_code": user.delivery_address.zip_code,
                          "city": user.delivery_address.city,
@@ -92,7 +95,7 @@ def get_users():
                      'email': user.email,
                      'credit_card_number': user.credit_card_number,
                      'date_created': user.timestamp,
-                     "delivery_adress": {
+                     "delivery_address": {
                          "street_and_number": user.delivery_address.street_and_number,
                          "zip_code": user.delivery_address.zip_code,
                          "city": user.delivery_address.city,
@@ -114,6 +117,7 @@ def add_user():
         for i in range(0, 13):
             if number[i] == number[i + 1] == number[i + 2] == number[i + 3]:
                 return {"error": "Invalid credit card - 4 or more consecutive digits are the same"}, 400
+
     delivery_address = UserAddress(
         street_and_number=request.json['delivery_address']["street_and_number"],
         zip_code=request.json['delivery_address']["zip_code"],
