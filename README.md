@@ -1,6 +1,6 @@
 # Polarcape APIs project
 - --
-### This is my solution to the email sent task by Polarcape, I chose *flasl v2.0.3* as the framework and *SQLite* as database. 
+### This is my solution to the email sent task by Polarcape, I chose *flask v2.0.3* as the framework and *SQLite* as database. 
 
 ### Repo contains:
 
