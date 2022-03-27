@@ -22,13 +22,12 @@ To run the app just press the run button on your IDE,
 or if you don't have an IDE just run:
 
 ```
-flask run
+flask run --port=1000
 ```
 
 
 I recommend you use Postman to test the API endpoints, it's test collection is part of this repo and it will save you time.
-All you need to do is import it in your Postman run *app.py* and send the requests. Please note that Postman will send requests at *localhost:1000*
-if you run the server differently please make the appropriate changes.  
+All you need to do is import it in your Postman run the app and send requests.
 
-### Thank you.
+
 
