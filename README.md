@@ -26,8 +26,8 @@ flask run --port=1000
 ```
 
 
-I recommend you use Postman to test the API endpoints, it's test collection is part of this repo and it will save you time.
-All you need to do is import it in your Postman run the app and send requests.
+I recommend you use Postman to test the API endpoints, the test collection is part of this repo and it will save you time.
+All you need to do, is import it in your Postman, run the app, and send requests.
 
 
 
