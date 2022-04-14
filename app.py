@@ -3,8 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-
-
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -102,8 +100,8 @@ def get_users():
                          "country": user.delivery_address.country
                      }
                      }
-        output.append(user_data)
-    return {"users": output}
+        # output.append(user_data)
+        return {"users": user_data}
 
 
 @app.route('/users', methods=['POST'])
@@ -134,6 +132,18 @@ def add_user():
     db.session.add(user)
     db.session.commit()
     return "User with id {} added".format(user.id)
+
+
+@app.route('/users/<id>', methods=['PUT'])
+def change_user_info(id):
+    user = User.query.get(id)
+    if user is None:
+        return {"error": "User not found"}, 404
+    new_name = request.json.get('name')
+    user.name = new_name
+    db.session.add(user)
+    db.session.commit()
+    return {user.name: "User modified"}
 
 
 @app.route('/users/<id>', methods=['DELETE'])

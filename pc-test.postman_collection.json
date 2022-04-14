@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b3f901c6-65bf-48a0-bafd-0e324b520ad5",
+		"_postman_id": "23a67f06-744d-4ad5-9d16-30dd07e313dc",
 		"name": "pc-test",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -240,6 +240,38 @@
 						"body": {
 							"mode": "raw",
 							"raw": "    {\r\n    \"name\" : \"Emi\", \r\n    \"surname\" : \"Dela\",\r\n    \"email\": \"test@example.com\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:1000/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "1000",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change user name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Emi\",\r\n    \"surname\": \"Dela\",\r\n    \"email\": \"test@example.com\",\r\n    \"delivery_address\": {\r\n        \"street_and_number\": \"Skupi 3\",\r\n        \"zip_code\": 1000,\r\n        \"city\": \"Skopje\",\r\n        \"country\": \"MKD\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
